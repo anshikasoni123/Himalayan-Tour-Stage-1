@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Tour</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    <script src = "https://unpkg.com/aframe-spe-particles-component@1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <a-scene inspector-plugin-recast>
+        <a-assets>
+          <audio id="shoot" src="./mixkit-wind-in-the-top-of-the-mountain-1267.wav"></audio>  
+          <img id = "sky" src = "./photo-1599209248411-5124adbb1da2.jpg">
+            <a-asset-item id = "house" src = "./snowy-wooden-hut/source/hut/hut/hut.gltf"></a-asset-item>
+            <a-asset-item id = "mountain" src = "./dhaulagiri-himalaya-nepal/source/dhaulagiri.gltf"></a-asset-item>
+            <a-asset-item id = "fire" src = "./camp_fire/scene.gltf"></a-asset-item>
+            <a-asset-item id = "girl" src = "./anime_girl-_walking_relaxed/scene.gltf"></a-asset-item>
+        </a-assets>
+    <a-entity id="camera-rig"  movement-controls="speed: 0.2" position="0 1 2">
+      <a-entity id="camera" camera position="11 4.8 26" look-controls="pointerLockEnabled: false">
+      </a-entity>
+         
+    </a-entity>
+    <a-entity id="sound1" sound="src: #shoot; poolSize:2; autoplay: true; volume: 10;loop:true"></a-entity>
+        <a-entity static-body id = "himalaya" rotation = "0 0 0" gltf-model = "#mountain" position = "0 0 -3"></a-entity>
+        <a-entity id = "himalaya-home" rotation = "0 0 0" gltf-model = "#house" scale = "0.2 0.2 0.2" position = "11 4.8 25" ></a-entity>
+        <a-entity id = "camp-fire" rotation = "0 0 0" gltf-model = "#fire" scale = "0.05 0.1 0.05" position = "11 4.8 26" ></a-entity>
+        <a-entity id = "walking-girl" rotation = "0 0 0" gltf-model = "#girl" scale = "0.5 0.5 0.5" animation-mixer position = "10 5 26" 
+        animation="property: position; to: 10 5 28; dur: 20000; easing: linear; dir:alternate" player-movement></a-entity>
+      </a-entity>
+       <a-sky src = "istockphoto-597963092-612x612.jpg"></a-sky>
+    </a-scene>
+</body>
+</html>
